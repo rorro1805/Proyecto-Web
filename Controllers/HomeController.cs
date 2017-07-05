@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Proyecto_Web.Configuration;
 using Dapper;
 using Proyecto_Web.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Proyecto_Web.Controllers
 {
@@ -20,13 +21,15 @@ namespace Proyecto_Web.Controllers
             _configuration = configuration.Value;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
+            /* 
             using (var conexion = new SqlConnection(_configuration.Default))
             {
                 var personas = conexion.Query<Persona>("SELECT * FROM persona");
                 return View(personas);
-            }
+            }*/
+            return View();
         }
 
         public IActionResult About()
@@ -38,12 +41,29 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+
+            var usuario = Request.Form["username"];
+            var password = Request.Form["password"];
+
+            var conexion = new SqlConnection(_configuration.Default);
+            var userEncontrado = conexion.Query<Persona>("SELECT * FROM persona WHERE nombre='" + usuario +
+                                                            "' AND password='" + password + "';");
+            var mensaje = "Login Exitoso";
+            if (userEncontrado.Count() == 0)
+            {
+                mensaje = "Login Incorrecto";
+            }
+            ViewData["Message"] = mensaje;
 
             return View();
         }
 
         public IActionResult Error()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
