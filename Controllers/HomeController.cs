@@ -7,26 +7,30 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Proyecto_Web.Configuration;
 using Dapper;
-using Proyecto_Web.Models;
+using Proyecto_Web.Models.Logica;
+using Microsoft.AspNetCore.Http;
+using Proyecto_Web.Models.Persistencia;
 
 namespace Proyecto_Web.Controllers
 {
     public class HomeController : Controller
     {
-        private DatabaseConfiguration _configuration { get; set; }
+        private DatabaseConfiguration configuration { get; set; }
 
         public HomeController(IOptions<DatabaseConfiguration> configuration)
         {
-            _configuration = configuration.Value;
+            this.configuration = configuration.Value;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
+            /* 
             using (var conexion = new SqlConnection(_configuration.Default))
             {
                 var personas = conexion.Query<Persona>("SELECT * FROM persona");
                 return View(personas);
-            }
+            }*/
+            return View();
         }
 
         public IActionResult About()
@@ -38,12 +42,36 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
 
-            return View();
+            var usuario = Request.Form["username"];
+            var password = Request.Form["password"];
+
+            PersistenciaPersona perPersona = new PersistenciaPersona(this.configuration);
+            var userEncontrado = perPersona.find(usuario, password);
+
+            var mensaje="";
+            if (userEncontrado.Count() == 0)
+            {
+                mensaje = "Login Incorrecto";
+                ViewData["Message"] = mensaje;
+                return View();
+            }
+            else
+            {
+                mensaje = "Persona:";
+                ViewData["Message"] = mensaje;
+                Persona personaEncontrada = userEncontrado.FirstOrDefault();
+                ViewData["personaEncontrada"] = personaEncontrada;
+                return View();
+            }
         }
 
         public IActionResult Error()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }

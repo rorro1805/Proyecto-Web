@@ -1,6 +1,6 @@
 using System;
 
-namespace Proyecto_Web.Models
+namespace Proyecto_Web.Models.Logica
 {
 
     public class Proyecto
