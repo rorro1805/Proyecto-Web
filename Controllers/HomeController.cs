@@ -67,5 +67,23 @@ namespace Proyecto_Web.Controllers
         {
             return View();
         }
+
+        public IActionResult Proyectos(){
+
+            var nombreProyecto = "Proyecto1";
+            string[] archivos = {"Archivo1", "Archivo2", "Archivo3", "Archivo4", "Archivosdfxgh", "Archivosdfgh"};
+
+            ViewData["archivos"] = archivos;
+            ViewData["nombreProyecto"] = nombreProyecto;
+            
+            return View();
+        }
+
+        public IActionResult Upload(){
+
+
+            return View();
+        }
+
     }
 }
