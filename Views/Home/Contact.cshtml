@@ -7,13 +7,18 @@
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
 
-<<<<<<< HEAD
 @if(persona!=null)
 {
-    <p><strong>Nombre:</strong> @persona.nombre</p>  
+    <div style="background-color: white; width: 300px">
+        <p>
+            <strong>Nombre:</strong> @persona.nombre <br />
+            <strong>Paterno:</strong> @persona.paterno <br />
+            <strong>Materno:</strong> @persona.materno <br />
+            <strong>Fecha nacimiento:</strong> @persona.fechaNacimiento <br />
+            <strong>Email:</strong> @persona.email     
+        </p> 
+    </div> 
 }
-=======
->>>>>>> aa166fe752fac1390f33532b34e0b45b0e2b0979
 
 <address>
     One Microsoft Way<br />

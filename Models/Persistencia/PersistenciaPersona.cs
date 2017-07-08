@@ -5,6 +5,7 @@ using Proyecto_Web.Configuration;
 using Dapper;
 using System.Collections.Generic;
 using Proyecto_Web.Models.Logica;
+using MySql.Data.MySqlClient;
 
 namespace Proyecto_Web.Models.Persistencia
 {
@@ -19,12 +20,13 @@ namespace Proyecto_Web.Models.Persistencia
             this.configuration = configuration;
         }
 
-        public IEnumerable<Persona> find(string rut, string password)
+        public IEnumerable<Persona> find(int rut, string password)
         {
             //conexion a la base de datos
-            var conexion = new SqlConnection(this.configuration.Default);
+            var conexion = new MySqlConnection(this.configuration.Default);
             //consulta 
-            return conexion.Query<Persona>("SELECT * FROM persona WHERE rut=@Rut", new { Rut = rut});
+            return conexion.Query<Persona>("SELECT * FROM persona WHERE rut=@Rut AND _password=@Password"
+                                            , new { Rut = rut, Password = password });
             //cerrar conexion
         }
     }
