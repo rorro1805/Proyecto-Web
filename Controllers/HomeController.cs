@@ -7,18 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Proyecto_Web.Configuration;
 using Dapper;
-using Proyecto_Web.Models;
+using Proyecto_Web.Models.Logica;
 using Microsoft.AspNetCore.Http;
+using Proyecto_Web.Models.Persistencia;
 
 namespace Proyecto_Web.Controllers
 {
     public class HomeController : Controller
     {
-        private DatabaseConfiguration _configuration { get; set; }
+        private DatabaseConfiguration configuration { get; set; }
 
         public HomeController(IOptions<DatabaseConfiguration> configuration)
         {
-            _configuration = configuration.Value;
+            this.configuration = configuration.Value;
         }
 
         public IActionResult Index()
@@ -42,20 +43,35 @@ namespace Proyecto_Web.Controllers
         public IActionResult Contact()
         {
 
-            var usuario = Request.Form["username"];
-            var password = Request.Form["password"];
+            string rutIngresado = Request.Form["rut"];
+            string password = Request.Form["password"];
+            var mensaje="";
 
-            var conexion = new SqlConnection(_configuration.Default);
-            var userEncontrado = conexion.Query<Persona>("SELECT * FROM persona WHERE nombre='" + usuario +
-                                                            "' AND password='" + password + "';");
-            var mensaje = "Login Exitoso";
+            if(rutIngresado.Equals("") || password.Equals(""))
+            {
+                mensaje = "Campos vacios";
+                ViewData["Message"] = mensaje;
+                return View();
+            }
+
+            int rut = Convert.ToInt32(rutIngresado);
+            PersistenciaPersona perPersona = new PersistenciaPersona(this.configuration);
+            var userEncontrado = perPersona.find(rut, password);
+
             if (userEncontrado.Count() == 0)
             {
                 mensaje = "Login Incorrecto";
+                ViewData["Message"] = mensaje;
+                return View();
             }
-            ViewData["Message"] = mensaje;
-
-            return View();
+            else
+            {
+                mensaje = "Persona:";
+                ViewData["Message"] = mensaje;
+                Persona personaEncontrada = userEncontrado.FirstOrDefault();
+                ViewData["personaEncontrada"] = personaEncontrada;
+                return View();
+            }
         }
 
         public IActionResult Error()

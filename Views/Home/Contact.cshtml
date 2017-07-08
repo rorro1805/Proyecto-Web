@@ -1,9 +1,24 @@
-﻿@{
+﻿@model Proyecto_Web.Models.Logica.Persona
+@using Proyecto_Web.Models.Logica
+@{
     ViewData["Title"] = "Contact";
+    Persona persona = (Persona)ViewData["personaEncontrada"];
 }
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
 
+@if(persona!=null)
+{
+    <div style="background-color: white; width: 300px">
+        <p>
+            <strong>Nombre:</strong> @persona.nombre <br />
+            <strong>Paterno:</strong> @persona.paterno <br />
+            <strong>Materno:</strong> @persona.materno <br />
+            <strong>Fecha nacimiento:</strong> @persona.fechaNacimiento <br />
+            <strong>Email:</strong> @persona.email     
+        </p> 
+    </div> 
+}
 
 <address>
     One Microsoft Way<br />
