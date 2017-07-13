@@ -6,7 +6,7 @@ namespace Proyecto_Web.Models.Logica
     public class Persona
     {
 
-        public int rut { get; set; }
+        public string rut { get; set; }
         public string nombre { get; set; }
         public string paterno { get; set; }
         public string materno { get; set; }
@@ -22,7 +22,7 @@ namespace Proyecto_Web.Models.Logica
         }
 
         //Constructor 
-        public Persona(int rut, string nombre, string materno, string paterno, string fechaNacimiento,
+        public Persona(string rut, string nombre, string materno, string paterno, string fechaNacimiento,
                         string password, string email, bool admin)
         {
             this.rut = rut;
