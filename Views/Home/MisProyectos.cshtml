@@ -1,0 +1,16 @@
+@model Proyecto_Web.Models.Logica.Persona
+@using Proyecto_Web.Models.Logica
+@{
+    ViewData["Title"] = "Mis Proyectos";
+    Persona persona = (Persona)ViewData["personaEncontrada"];
+}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">@ViewData["Title"]</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> @persona.email </a></li>
+        </ul>
+    </div>
+</nav>

@@ -68,4 +68,8 @@ body {
  #social-em:hover {
      color: #f39c12;
  }    
+ footer {
+     background-color: white;
+     height: 50px;
+ }
     
