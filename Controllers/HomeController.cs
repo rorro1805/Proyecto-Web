@@ -20,6 +20,7 @@ namespace Proyecto_Web.Controllers
 {
     public class HomeController : Controller
     {
+        // Configuracion de la conexion a la base de datos
         private DatabaseConfiguration configuration { get; set; }
         private IHostingEnvironment hostingEnv;
 
@@ -31,56 +32,67 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Index()
         {
-            /* 
-            using (var conexion = new SqlConnection(_configuration.Default))
-            {
-                var personas = conexion.Query<Persona>("SELECT * FROM persona");
-                return View(personas);
-            }*/
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Proyectos()
         {
-            ViewData["Message"] = "Your application description page.";
+
+            var nombreProyecto = "Proyecto1";
+            string[] archivos = { "Archivo1", "Archivo2", "Archivo3", "Archivo4", "Archivosdfxgh", "Archivosdfgh" };
+
+            ViewData["archivos"] = archivos;
+            ViewData["nombreProyecto"] = nombreProyecto;
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Upload()
         {
 
+
+            return View();
+        }
+
+        public IActionResult MisProyectos()
+        {
+
+            // recepcion de datos desde el formulario
             string rutIngresado = Request.Form["rut"];
             string password = Request.Form["password"];
-            var mensaje="";
 
-            if(rutIngresado.Equals("") || password.Equals(""))
+            int rut;
+            // conversion del rut ingresado
+            try
             {
-                mensaje = "Campos vacios";
-                ViewData["Message"] = mensaje;
-                return View();
+                rut = Convert.ToInt32(rutIngresado);
             }
-
-            int rut = Convert.ToInt32(rutIngresado);
-            PersistenciaPersona perPersona = new PersistenciaPersona(this.configuration);
-            var userEncontrado = perPersona.find(rut, password);
-
-            if (userEncontrado.Count() == 0)
+            catch (Exception ex)
             {
-                mensaje = "Login Incorrecto";
-                ViewData["Message"] = mensaje;
-                return View();
+                ViewData["ingreso"] = "error";
+                ViewData["MensajeIngreso"] = "Formato de RUT inválido";
+                return View("Index");
+            }
+            // se instancia la persistencia persona
+            PersistenciaPersona perPersona = new PersistenciaPersona(this.configuration);
+            // se busca al usuario en la base de datos segun credenciales ingresadas
+            Persona userEncontrado = perPersona.find(rut, password);
+
+            // si no se encontro el usuario
+            if (userEncontrado == null)
+            {
+                ViewData["ingreso"] = "error";
+                ViewData["MensajeIngreso"] = "RUT o Contraseña incorrectos";
+                return View("Index");
             }
             else
             {
-                mensaje = "Persona:";
-                ViewData["Message"] = mensaje;
-                Persona personaEncontrada = userEncontrado.FirstOrDefault();
-                ViewData["personaEncontrada"] = personaEncontrada;
+                ViewData["personaEncontrada"] = userEncontrado;
                 return View();
             }
         }
 
+<<<<<<< HEAD
         public IActionResult Error()
         {
             return View();
@@ -132,5 +144,7 @@ namespace Proyecto_Web.Controllers
             return Json(message);
 
         }
+=======
+>>>>>>> cee00f0bf22f1da4c55a9c4f2fb2a7e933591070
     }
 }

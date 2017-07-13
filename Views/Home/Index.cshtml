@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Login";
+    string loginResult = (string)ViewData["ingreso"];
 }
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
     <div class="container">
@@ -9,22 +10,33 @@
                     <div class="panel-heading">                                
                         <div class="row-fluid user-row">
                             <img src="http://www.rotulomivehiculo.com/images/loginUser.png" class="img-responsive" alt="Conxole Admin"
-                                        height="180px" width="180px"/>
+                                        height="120px" width="120px"/>
                         </div>
                     </div>
-                    <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form" class="form-signin" action="~/Home/Contact" method="POST">
+                    <div class="panel-body" style="text-align: center">
+                        <form accept-charset="UTF-8" role="form" class="form-signin" action="~/Home/MisProyectos" method="POST">
                             <fieldset>
                                 <label class="panel-login">
                                     <div class="login_result"></div>
                                 </label>
                                 <input class="form-control" placeholder="RUT (ej: 185181677)" name="rut" 
-                                        type="text" required>
-                                <input class="form-control" placeholder="Password" name="password" 
-                                        type="password" required>
-                                <br></br>
+                                        type="text" required maxlength="9">
+                                <input class="form-control" placeholder="Contraseña" name="password" 
+                                        type="password" required maxlength="10">
+                                @if(loginResult == "error")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="glyphicon glyphicon-exclamation-sign" 
+                                            aria-hidden="true"></span>
+                                        <!--<span class="sr-only">Error:</span>-->
+                                        @ViewData["MensajeIngreso"]
+                                    </div>
+                                }
                                 <input class="btn btn-lg btn-success btn-block" type="submit" id="login" 
                                         value="Ingresar »">
+                                <br />
+                                <!--TODO: enviar a pagina de recuperacion de contraseña-->
+                                <a href=""><strong>¿Has olvidado la contraseña?</strong></a>
                             </fieldset>
                         </form>
                     </div>
