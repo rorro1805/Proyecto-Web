@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Upload Page";
+}
+<div>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" id="files" 
+           name="files" multiple />
+    <input type="button" 
+           id="upload" 
+           value="Upload Selected Files" />
+</form>
+</div>
+
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        console.log("estamos en el script");
+        $("#upload").click(function () {
+            var fileUpload = $("#files").get(0);
+            var files = fileUpload.files;
+            var data = new FormData();
+            for (var i = 0; i < files.length ; i++) {
+                data.append(files[i].name, files[i]);
+            }
+            
+            $.ajax({
+                type: 'Post',
+                url: 'Upload',
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    alert(message);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al subir los archivos!");
+                }
+            });
+        });
+    });
+</script>
