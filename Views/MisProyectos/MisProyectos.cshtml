@@ -1,5 +1,5 @@
-@model Proyecto_Web.Models.Logica.Persona
-@using Proyecto_Web.Models.Logica
+@model Proyecto_Web.Models.Domain.Persona
+@using Proyecto_Web.Models.Domain
 @{
     ViewData["Title"] = "Mis Proyectos";
     Persona persona = (Persona)ViewData["personaEncontrada"];
@@ -10,7 +10,7 @@
             <a class="navbar-brand">@ViewData["Title"]</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> @persona.email </a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> @persona.Email </a></li>
         </ul>
     </div>
 </nav>

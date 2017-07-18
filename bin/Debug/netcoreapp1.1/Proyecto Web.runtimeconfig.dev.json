@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Rodrigo\\.nuget\\packages"
+      "/Users/Efesteban/.nuget/packages"
     ]
   }
 }

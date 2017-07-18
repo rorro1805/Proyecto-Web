@@ -1,8 +1,16 @@
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\bin\Debug\netcoreapp1.1\Proyecto Web.deps.json
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\bin\Debug\netcoreapp1.1\Proyecto Web.runtimeconfig.json
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\bin\Debug\netcoreapp1.1\Proyecto Web.runtimeconfig.dev.json
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\bin\Debug\netcoreapp1.1\Proyecto Web.dll
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\bin\Debug\netcoreapp1.1\Proyecto Web.pdb
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\obj\Debug\netcoreapp1.1\Proyecto Web.AssemblyInfo.cs
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\obj\Debug\netcoreapp1.1\Proyecto Web.dll
-c:\Users\Rodrigo\Documents\UCN\2017 1er Semestre\Tecnologias Web Avanzadas\Proyecto Web\obj\Debug\netcoreapp1.1\Proyecto Web.pdb
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/bin/Debug/netcoreapp1.1/Proyecto Web.deps.json
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.json
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.dev.json
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/bin/Debug/netcoreapp1.1/Proyecto Web.dll
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/bin/Debug/netcoreapp1.1/Proyecto Web.pdb
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/obj/Debug/netcoreapp1.1/Proyecto Web.AssemblyInfo.cs
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/obj/Debug/netcoreapp1.1/Proyecto Web.dll
+c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proyecto Web/obj/Debug/netcoreapp1.1/Proyecto Web.pdb
+/Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.deps.json
+/Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.json
+/Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.dev.json
+/Users/Efesteban/Desktop/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.AssemblyInfo.cs
+/Users/Efesteban/Desktop/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.dll
+/Users/Efesteban/Desktop/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.pdb
+/Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.dll
+/Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.pdb

@@ -1,20 +1,23 @@
+@model Proyecto_Web.Models.Domain.Proyecto
+@using Proyecto_Web.Models.Domain
 @{
-    ViewData["Title"] = ViewData["nombreProyecto"];
-    var archivos = (string[]) ViewData["archivos"];
+    Proyecto proyecto = (Proyecto)ViewData["proyecto"];
+    ViewData["Title"] = proyecto.Nombre;
+    ViewData["ID"] = proyecto.ID;
 }
 
 <div> 
-    <div> @ViewData["nombreProyecto"]</div>
+    <div> @ViewData["Title"] - ID: @ViewData["ID"] </div>
     <div>
 
         <div class="row">
             
 
-            @foreach (string arch in archivos)
+            @foreach (Archivo arch in proyecto.ListaArchivos)
             {
                 <div class="col-xs-6 col-md-3">
                     <a href="#" class="thumbnail">
-                    <img src="..." alt="..."> @arch
+                    <img src="..." alt="..."> @arch.Nombre
                     </a>
                 </div>            
             }
@@ -22,7 +25,7 @@
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             
             <div class="btn-group" role="group">
-                <form accept-charset="UTF-8" role="form" class="form-signin" action="~/Home/upload" method="POST">
+                <form accept-charset="UTF-8" role="form" class="form-signin" action="~/Proyecto/fileUpload" method="POST">
                     <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Subir Archivos »">
                 </form>
             </div>

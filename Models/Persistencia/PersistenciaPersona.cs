@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Proyecto_Web.Configuration;
 using Dapper;
 using System.Collections.Generic;
-using Proyecto_Web.Models.Logica;
+using Proyecto_Web.Models.Domain;
 using MySql.Data.MySqlClient;
 using System.Linq;
 
@@ -25,7 +25,7 @@ namespace Proyecto_Web.Models.Persistencia
         }
 
         // Busca a una persona en la base de datos, segun rut y password ingresados
-        public Persona find(int rut, string password)
+        public Persona Find(int rut, string password)
         {
             // conexion a la base de datos
             MySqlConnection conexion = this.conexionMySQL.conectar();
