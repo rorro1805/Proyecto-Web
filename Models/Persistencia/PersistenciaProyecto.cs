@@ -37,5 +37,36 @@ namespace Proyecto_Web.Models.Persistencia
             return proyectos.FirstOrDefault();
         }
 
+
+        public List<Proyecto> FindProyectoRutDirector(int Rut)
+        {
+            // conexion a la base de datos
+            MySqlConnection conexion = this.conexionMySQL.conectar();
+            // consulta 
+            IEnumerable<Proyecto> proyectos =
+                conexion.Query<Proyecto>("SELECT * FROM proyecto WHERE rutDirector=@RUT"
+                                            , new { RUT = Rut});
+
+            conexion.Close();
+            // retorna resultado de la consulta
+            return proyectos.AsList();
+        }
+
+        public List<Proyecto> FindProyectoRutColaborador(int Rut)
+        {
+            // conexion a la base de datos
+            MySqlConnection conexion = this.conexionMySQL.conectar();
+            // consulta 
+            IEnumerable<Proyecto> proyectos =
+                conexion.Query<Proyecto>("SELECT * FROM trabajadores WHERE rutPersona=@RUT"
+                                            , new { RUT = Rut});
+
+            conexion.Close();
+            // retorna resultado de la consulta
+            return proyectos.AsList();
+
+        }
+
+
     }
 }

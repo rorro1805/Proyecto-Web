@@ -24,12 +24,15 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
         public IActionResult Error()
         {
-            return View();
+            ViewData["ingreso"] = "error";
+            ViewData["MensajeIngreso"] = "RUT o Contraseña incorrectos";
+            return View("Index");
         }
 
         public IActionResult Login()
