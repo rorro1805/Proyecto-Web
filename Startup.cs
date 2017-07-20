@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Proyecto_Web.Configuration;
+using Microsoft.Extensions.Options;
+using Proyecto_Web.Data;
+using Microsoft.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace Proyecto_Web
 {
@@ -30,8 +33,10 @@ namespace Proyecto_Web
         {
             // Add framework services.
             services.AddMvc();
-            // Add database configuration string.
-            services.Configure<DatabaseConfiguration>(Configuration.GetSection("DatabaseConnectionStrings"));
+            string conexion = "server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.proyecto_web";
+            // Add DB context
+            services.AddDbContext<WebMySqlContext>(options => options.UseMySQL(conexion));
+    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
