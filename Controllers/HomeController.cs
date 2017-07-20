@@ -4,27 +4,36 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Proyecto_Web.Configuration;
-using Proyecto_Web.Models.Domain;
-using Proyecto_Web.Models.Persistencia;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Web.Controllers
 {
     public class HomeController : Controller
     {
         // Configuracion de la conexion a la base de datos
-        private DatabaseConfiguration configuration { get; set; }
         private IHostingEnvironment hostingEnv;
 
-        public HomeController(IOptions<DatabaseConfiguration> configuration, IHostingEnvironment env)
+        public HomeController(IHostingEnvironment env)
         {
-            this.configuration = configuration.Value;
             this.hostingEnv = env;
         }
 
         public IActionResult Index()
         {
+            return View();
+        }
 
+        public IActionResult Proyectos()
+        {
+            return View();
+        }
+
+        public IActionResult MisProyectos()
+        {
             return View();
         }
 
@@ -40,5 +49,16 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
+        public IActionResult fileUpload()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Upload()
+        {
+            return View();
+        }
     }
 }

@@ -1,38 +1,24 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Proyecto_Web.Models.Domain
+namespace Proyecto Web
 {
-
-    public class Persona
+    public partial class Persona
     {
-
-        public string Rut { get; set; }
-        public string Nombre { get; set; }
-        public string Paterno { get; set; }
-        public string Materno { get; set; }
-        public string FechaNacimiento { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public Boolean Admin { get; set; }
-
         public Persona()
         {
-            
+            Proyecto = new HashSet<Proyecto>();
         }
 
-        //Constructor 
-        public Persona(string Rut, string Nombre, string Paterno, string Materno, string FechaNacimiento,
-                        string Password, string Email, Boolean Admin)
-        {
-            this.Rut = Rut;
-            this.Nombre = Nombre;
-            this.Materno = Materno;
-            this.Paterno = Paterno;
-            this.FechaNacimiento = FechaNacimiento;
-            this.Password = Password;
-            this.Email = Email;
-            this.Admin = Admin;
-        }
+        public string Rut { get; set; }
+        public sbyte? Admin { get; set; }
+        public string Email { get; set; }
+        public string FechaNacimiento { get; set; }
+        public string Materno { get; set; }
+        public string Nombre { get; set; }
+        public string Password { get; set; }
+        public string Paterno { get; set; }
 
+        public virtual ICollection<Proyecto> Proyecto { get; set; }
     }
 }

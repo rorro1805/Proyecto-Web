@@ -1,21 +1,18 @@
-namespace Proyecto_Web.Models.Domain
+using System;
+using System.Collections.Generic;
+
+namespace Proyecto Web
 {
-    public class Archivo
+    public partial class Archivo
     {
-        public int ID {get; set;}
+        public int Id { get; set; }
+        public int? IdEstado { get; set; }
+        public int? IdProyecto { get; set; }
         public string Nombre { get; set; }
+        public string Ruta { get; set; }
         public string Tipo { get; set; }
-        public string Ruta { get;set;}
-        public int IDEstado { get; set;}
-        public int IDProyecto {get; set;}
-        public Archivo(int ID, string Nombre, string Tipo, string Ruta, int IDEstado, int IDProyecto)
-        {
-            this.ID = ID;
-            this.Nombre = Nombre;
-            this.Tipo = Tipo;
-            this.Ruta = Ruta;
-            this.IDEstado = IDEstado;
-            this.IDProyecto = IDProyecto;
-        }
+
+        public virtual Estado IdEstadoNavigation { get; set; }
+        public virtual Proyecto IdProyectoNavigation { get; set; }
     }
 }
