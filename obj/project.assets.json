@@ -10602,16 +10602,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\Proyecto Web.csproj",
+      "projectUniqueName": "C:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\Proyecto Web.csproj",
       "projectName": "Proyecto Web",
-      "projectPath": "c:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\Proyecto Web.csproj",
-      "outputPath": "c:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\obj\\",
+      "projectPath": "C:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\Proyecto Web.csproj",
+      "outputPath": "C:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Proyecto Web.dll": "c:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\bin\\placeholder\\netcoreapp1.1\\Proyecto Web.dll"
+        "lib/netcoreapp1.1/Proyecto Web.dll": "C:\\Users\\Rodrigo\\Documents\\UCN\\2017 1er Semestre\\Tecnologias Web Avanzadas\\Proyecto Web\\bin\\placeholder\\netcoreapp1.1\\Proyecto Web.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
