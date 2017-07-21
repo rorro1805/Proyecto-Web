@@ -35,7 +35,7 @@ namespace Proyecto_Web
             services.AddMvc();
             string conexion = "server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.proyecto_web";
             // Add DB context
-            services.AddDbContext<WebMySqlContext>(options => options.UseMySQL(conexion));
+            services.AddDbContext<ucn_disc_twa_proyecto_webContext>(options => options.UseMySQL(conexion));
     
         }
 

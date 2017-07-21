@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Proyecto_Web.Models.Domain;
 
-namespace Proyecto Web
+namespace Proyecto_Web.Data
 {
     public partial class ucn_disc_twa_proyecto_webContext : DbContext
     {

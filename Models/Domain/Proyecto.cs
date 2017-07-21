@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Proyecto Web
+namespace Proyecto_Web.Models.Domain
 {
     public partial class Proyecto
     {

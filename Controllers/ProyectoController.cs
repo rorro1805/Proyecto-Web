@@ -4,22 +4,17 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Proyecto_Web.Configuration;
 using Proyecto_Web.Models.Domain;
-using Proyecto_Web.Models.Persistencia;
 
 namespace Proyecto_Web.Controllers
 {
     public class ProyectoController : Controller
     {
 
-        // Configuracion de la conexion a la base de datos
-        private DatabaseConfiguration configuration { get; set; }
         private IHostingEnvironment hostingEnv;
 
-        public ProyectoController(IOptions<DatabaseConfiguration> configuration, IHostingEnvironment env)
+        public ProyectoController(IHostingEnvironment env)
         {
-            this.configuration = configuration.Value;
             this.hostingEnv = env;
         }
 
@@ -32,32 +27,7 @@ namespace Proyecto_Web.Controllers
         public IActionResult Proyectos()
         {
             int idProyecto = 3001;
-
-            //creamos la persistencia para ir a consultar por los proyectos
-            PersistenciaProyecto perProyecto = new PersistenciaProyecto(this.configuration);
-
-            Proyecto proyecto = perProyecto.Find(idProyecto);
-
-            // si no se encontro el proyecto
-            if (proyecto == null)
-            {
-            
-                ViewData["MensajeIngreso"] = "No existe el proyecto indicado";
-                return View("MisProyectos");
-            }
-            else
-            {
-                //existe el proyecto. Cargamos su lista de archivos y la enviamos.
-                //creamos la persistencia para consultar por los archivos
-                PersistenciaArchivo perArchivo = new PersistenciaArchivo(this.configuration);
-                List<Archivo> listaArchivos = perArchivo.FindForProyect(idProyecto);
-
-                proyecto.ListaArchivos = listaArchivos;
-
-                ViewData["proyecto"] = proyecto;
-                return View("Proyectos");
-            }
-
+            return View();
         }
 
         public IActionResult FileUpload(){
