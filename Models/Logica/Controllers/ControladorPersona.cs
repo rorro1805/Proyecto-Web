@@ -22,7 +22,9 @@ namespace Proyecto_Web.Models.Logica.Controllers
             // consulta a la BD
             return context.Persona.
                     Where(p => p.Rut == rut)
+                    // se incluyen los proyectos asociados a esa persona
                     .Include(pr => pr.Proyecto)
+                    // obtiene a la persona si la encuentra
                     .FirstOrDefault();
         }
     }
