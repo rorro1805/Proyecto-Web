@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Proyecto_Web.Models.Domain;
 
@@ -11,12 +10,11 @@ namespace Proyecto_Web.Data
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<Proyecto> Proyecto { get; set; }
-
-        // Unable to generate entity type for table 'trabajadores'. Please see the warning messages.
+        public virtual DbSet<Trabajadores> Trabajadores { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+            //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
             optionsBuilder.UseMySql(@"server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.proyecto_web");
         }
 
@@ -152,6 +150,44 @@ namespace Proyecto_Web.Data
                     .WithMany(p => p.Proyecto)
                     .HasForeignKey(d => d.RutDirector)
                     .HasConstraintName("proyecto_ibfk_1");
+            });
+
+            modelBuilder.Entity<Trabajadores>(entity =>
+            {
+                entity.HasKey(e => new { e.RutPersona, e.IdProyecto })
+                    .HasName("PK_trabajadores");
+
+                entity.ToTable("trabajadores");
+
+                entity.HasIndex(e => e.IdProyecto)
+                    .HasName("idProyecto");
+
+                entity.HasIndex(e => e.RutPersona)
+                    .HasName("rutPersona");
+
+                entity.Property(e => e.RutPersona)
+                    .HasColumnName("rutPersona")
+                    .HasColumnType("varchar(11)");
+
+                entity.Property(e => e.IdProyecto)
+                    .HasColumnName("idProyecto")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Cargo)
+                    .HasColumnName("cargo")
+                    .HasColumnType("varchar(45)");
+
+                entity.HasOne(d => d.IdProyectoNavigation)
+                    .WithMany(p => p.Trabajadores)
+                    .HasForeignKey(d => d.IdProyecto)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("trabajadores_ibfk_2");
+
+                entity.HasOne(d => d.RutPersonaNavigation)
+                    .WithMany(p => p.Trabajadores)
+                    .HasForeignKey(d => d.RutPersona)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("trabajadores_ibfk_1");
             });
         }
     }

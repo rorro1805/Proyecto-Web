@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Proyecto_Web.Data;
-using Microsoft.EntityFrameworkCore;
 using MySQL.Data.EntityFrameworkCore.Extensions;
+using Proyecto_Web.Data;
 
 namespace Proyecto_Web
 {
@@ -33,10 +27,9 @@ namespace Proyecto_Web
         {
             // Add framework services.
             services.AddMvc();
-            string conexion = "server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.proyecto_web";
             // Add DB context
-            services.AddDbContext<ucn_disc_twa_proyecto_webContext>(options => options.UseMySQL(conexion));
-    
+            services.AddDbContext<ucn_disc_twa_proyecto_webContext>(options => 
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

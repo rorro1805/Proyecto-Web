@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Login";
-    string loginResult = (string)ViewData["ingreso"];
+    string loginResult = (string)ViewData["Ingreso"];
 }
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
     <div class="container">
@@ -14,7 +14,9 @@
                         </div>
                     </div>
                     <div class="panel-body" style="text-align: center">
-                        <form accept-charset="UTF-8" role="form" class="form-signin" action="~/MisProyectos" method="POST">
+                        <form accept-charset="UTF-8" role="form" class="form-signin" 
+                                        asp-action="MisProyectos" asp-controller="MisProyectos"
+                                        method="POST">
                             <fieldset>
                                 <label class="panel-login">
                                     <div class="login_result"></div>

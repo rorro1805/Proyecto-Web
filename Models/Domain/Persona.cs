@@ -8,6 +8,7 @@ namespace Proyecto_Web.Models.Domain
         public Persona()
         {
             Proyecto = new HashSet<Proyecto>();
+            Trabajadores = new HashSet<Trabajadores>();
         }
 
         public string Rut { get; set; }
@@ -20,5 +21,6 @@ namespace Proyecto_Web.Models.Domain
         public string Paterno { get; set; }
 
         public virtual ICollection<Proyecto> Proyecto { get; set; }
+        public virtual ICollection<Trabajadores> Trabajadores { get; set; }
     }
 }

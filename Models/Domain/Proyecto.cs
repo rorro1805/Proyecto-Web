@@ -8,6 +8,7 @@ namespace Proyecto_Web.Models.Domain
         public Proyecto()
         {
             Archivo = new HashSet<Archivo>();
+            Trabajadores = new HashSet<Trabajadores>();
         }
 
         public int Id { get; set; }
@@ -17,6 +18,7 @@ namespace Proyecto_Web.Models.Domain
         public string RutDirector { get; set; }
 
         public virtual ICollection<Archivo> Archivo { get; set; }
+        public virtual ICollection<Trabajadores> Trabajadores { get; set; }
         public virtual Persona RutDirectorNavigation { get; set; }
     }
 }

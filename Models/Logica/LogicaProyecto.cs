@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Microsoft.Extensions.Options;
 using Proyecto_Web.Models.Domain;
 
 namespace Proyecto_Web.Models

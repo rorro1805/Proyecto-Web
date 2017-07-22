@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Http;
-using System.Net.Http.Headers;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
+using MySqlX.XDevAPI;
 
 namespace Proyecto_Web.Controllers
 {
@@ -37,16 +35,13 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult Error(string mensaje)
         {
-            ViewData["ingreso"] = "error";
-            ViewData["MensajeIngreso"] = "RUT o Contraseña incorrectos";
+            // se definen variables que avisan que hubo un error
+            ViewData["Ingreso"] = "error";
+            ViewData["MensajeIngreso"] = mensaje;
+            // redirige a la pagina de inicio de sesion
             return View("Index");
-        }
-
-        public IActionResult Login()
-        {
-            return View();
         }
 
         public IActionResult fileUpload()

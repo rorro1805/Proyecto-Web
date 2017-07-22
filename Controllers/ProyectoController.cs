@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Proyecto_Web.Models.Domain;
 
 namespace Proyecto_Web.Controllers
 {
@@ -26,7 +23,7 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Proyectos()
         {
-            int idProyecto = 3001;
+            //int idProyecto = 3001;
             return View();
         }
 
