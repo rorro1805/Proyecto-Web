@@ -14,3 +14,11 @@ c:/Users/Rodrigo/Documents/UCN/2017 1er Semestre/Tecnologias Web Avanzadas/Proye
 /Users/Efesteban/Desktop/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.pdb
 /Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.dll
 /Users/Efesteban/Desktop/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.pdb
+/Users/Efesteban/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.deps.json
+/Users/Efesteban/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.json
+/Users/Efesteban/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.runtimeconfig.dev.json
+/Users/Efesteban/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.dll
+/Users/Efesteban/Proyecto-Web/bin/Debug/netcoreapp1.1/Proyecto Web.pdb
+/Users/Efesteban/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.AssemblyInfo.cs
+/Users/Efesteban/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.dll
+/Users/Efesteban/Proyecto-Web/obj/Debug/netcoreapp1.1/Proyecto Web.pdb

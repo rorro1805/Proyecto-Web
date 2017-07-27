@@ -10339,16 +10339,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Efesteban/Desktop/Proyecto-Web/Proyecto Web.csproj",
+      "projectUniqueName": "/Users/Efesteban/Proyecto-Web/Proyecto Web.csproj",
       "projectName": "Proyecto Web",
-      "projectPath": "/Users/Efesteban/Desktop/Proyecto-Web/Proyecto Web.csproj",
-      "outputPath": "/Users/Efesteban/Desktop/Proyecto-Web/obj/",
+      "projectPath": "/Users/Efesteban/Proyecto-Web/Proyecto Web.csproj",
+      "outputPath": "/Users/Efesteban/Proyecto-Web/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Proyecto Web.dll": "/Users/Efesteban/Desktop/Proyecto-Web/bin/placeholder/netcoreapp1.1/Proyecto Web.dll"
+        "lib/netcoreapp1.1/Proyecto Web.dll": "/Users/Efesteban/Proyecto-Web/bin/placeholder/netcoreapp1.1/Proyecto Web.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
