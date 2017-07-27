@@ -57,13 +57,25 @@ namespace Proyecto_Web.Models.Persistencia
             // conexion a la base de datos
             MySqlConnection conexion = this.conexionMySQL.conectar();
             // consulta 
-            IEnumerable<Proyecto> proyectos =
-                conexion.Query<Proyecto>("SELECT * FROM trabajadores WHERE rutPersona=@RUT"
+            IEnumerable<int> idProyectos =
+                conexion.Query<int>("SELECT idProyecto FROM trabajadores WHERE rutPersona=@RUT"
                                             , new { RUT = Rut});
+
+            List<int> listaId = idProyectos.AsList();
+            List<Proyecto> listaProyectos = new List<Proyecto>();
+
+            foreach(int id in listaId)
+            {
+                IEnumerable<Proyecto> proyectos =
+                conexion.Query<Proyecto>("SELECT * FROM proyecto WHERE id=@ID"
+                                            , new { ID = id});
+                
+                listaProyectos.Add(proyectos.FirstOrDefault());
+            }
 
             conexion.Close();
             // retorna resultado de la consulta
-            return proyectos.AsList();
+            return listaProyectos.AsList();
 
         }
 

@@ -48,7 +48,7 @@ namespace Proyecto_Web.Controllers
                 
                 ViewData["ingreso"] = "error";
                 ViewData["MensajeIngreso"] = "Formato de RUT inválido";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Error", "Home");
             }
             // se instancia la persistencia persona
             PersistenciaPersona perPersona = new PersistenciaPersona(this.configuration);
