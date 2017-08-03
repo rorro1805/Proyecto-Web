@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Domain;
@@ -15,8 +16,10 @@ namespace Proyecto_Web.Controllers
             this.hostingEnv = env;
         }
 
+        [HttpPost]
         public IActionResult MisProyectos()
         {
+
             // recepcion de credenciales ingresadas en el formulario
             string rutIngresado = Request.Form["rut"];
             string passwordIngresado = Request.Form["password"];
@@ -54,7 +57,7 @@ namespace Proyecto_Web.Controllers
                     ViewData["MensajeError"] = mensajeError;
 
                     // redirige al action Error del controlador Home con parametro
-                    return RedirectToAction("Error", "Home", new { mensaje = mensajeError });
+                    return RedirectToAction("ErrorLogin", "Home", new { mensaje = mensajeError });
                 }
             }
             else
@@ -65,10 +68,9 @@ namespace Proyecto_Web.Controllers
                 ViewData["MensajeError"] = mensajeError;
 
                 // redirige al action Error del controlador Home con parametro
-                return RedirectToAction("Error", "Home", new { mensaje = mensajeError });
+                return RedirectToAction("ErrorLogin", "Home", new { mensaje = mensajeError });
             }
-
         }
-    }
 
+    }
 }

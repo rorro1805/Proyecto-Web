@@ -35,7 +35,7 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
-        public IActionResult Error(string mensaje)
+        public IActionResult ErrorLogin(string mensaje)
         {
             // se definen variables que avisan que hubo un error
             ViewData["Ingreso"] = "error";
@@ -52,6 +52,16 @@ namespace Proyecto_Web.Controllers
 
         [HttpPost]
         public IActionResult Upload()
+        {
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            return new StatusCodeResult(401);
+        }
+
+        public IActionResult Register()
         {
             return View();
         }
