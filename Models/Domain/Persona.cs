@@ -12,7 +12,7 @@ namespace Proyecto_Web.Models.Domain
         }
 
         public string Rut { get; set; }
-        public sbyte? Admin { get; set; }
+        public bool Admin { get; set; }
         public string Email { get; set; }
         public string FechaNacimiento { get; set; }
         public string Materno { get; set; }

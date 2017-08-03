@@ -1,0 +1,42 @@
+@model Proyecto_Web.Models.Domain.Proyecto
+@using Proyecto_Web.Models.Domain
+@{
+    Proyecto proyecto = (Proyecto)ViewData["proyecto"];
+    ViewData["Title"] = proyecto.Nombre;
+    ViewData["ID"] = proyecto.Id;
+}
+
+<div> 
+    <div> @ViewData["Title"] - ID: @ViewData["ID"] </div>
+    <div>
+
+        <div class="row">
+            
+            <!-- por cada archivo que contiene el proyecto -->
+            @foreach (Archivo archivo in proyecto.Archivo)
+            {
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                    <img src="..." alt="..."> @archivo.Nombre
+                    </a>
+                </div>            
+            }
+
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            
+            <div class="btn-group" role="group">
+
+					<a asp-controller="Proyecto" asp-action="FileUpload">
+					    <button class="btn btn-lg btn-success btn-block">Subir Archivo</button>
+					</a>
+					
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    
+
+</div>

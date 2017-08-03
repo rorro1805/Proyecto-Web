@@ -15,7 +15,7 @@ namespace Proyecto_Web.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseMySql(@"server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.proyecto_web");
+            optionsBuilder.UseMySql(@"server=localhost;port=3306;user=root;password=Yolo2015;database=ucn.disc.twa.Proyecto_Web");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -89,34 +89,36 @@ namespace Proyecto_Web.Data
                     .HasColumnName("rut")
                     .HasColumnType("varchar(11)");
 
-                entity.Property(e => e.Admin)
+				entity.Property(e => e.Nombre)
+					.HasColumnName("nombre")
+					.HasColumnType("varchar(45)");
+
+				entity.Property(e => e.Paterno)
+					.HasColumnName("paterno")
+					.HasColumnType("varchar(45)");
+
+				entity.Property(e => e.Materno)
+					.HasColumnName("materno")
+					.HasColumnType("varchar(45)");
+
+				entity.Property(e => e.FechaNacimiento)
+					.HasColumnName("fechaNacimiento")
+					.HasColumnType("varchar(45)");
+
+				entity.Property(e => e.Password)
+					.IsRequired()
+					.HasColumnName("_password")
+					.HasColumnType("varchar(45)");
+
+				entity.Property(e => e.Email)
+					.HasColumnName("email")
+					.HasColumnType("varchar(45)");
+                
+				entity.Property(e => e.Admin)
                     .HasColumnName("admin")
                     .HasColumnType("tinyint(1)");
 
-                entity.Property(e => e.Email)
-                    .HasColumnName("email")
-                    .HasColumnType("varchar(45)");
 
-                entity.Property(e => e.FechaNacimiento)
-                    .HasColumnName("fechaNacimiento")
-                    .HasColumnType("varchar(45)");
-
-                entity.Property(e => e.Materno)
-                    .HasColumnName("materno")
-                    .HasColumnType("varchar(45)");
-
-                entity.Property(e => e.Nombre)
-                    .HasColumnName("nombre")
-                    .HasColumnType("varchar(45)");
-
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasColumnName("_password")
-                    .HasColumnType("varchar(45)");
-
-                entity.Property(e => e.Paterno)
-                    .HasColumnName("paterno")
-                    .HasColumnType("varchar(45)");
             });
 
             modelBuilder.Entity<Proyecto>(entity =>

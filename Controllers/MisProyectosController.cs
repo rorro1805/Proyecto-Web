@@ -71,6 +71,21 @@ namespace Proyecto_Web.Controllers
                 return RedirectToAction("ErrorLogin", "Home", new { mensaje = mensajeError });
             }
         }
+<<<<<<< HEAD
+=======
+
+		public IActionResult Proyectos(int id)
+		{
+            //Buscamos el proyecto correspondiente.
+            var controladorProyecto = new ControladorProyecto();
+            Proyecto proyecto = controladorProyecto.Find(id);
+
+
+            ViewData["proyecto"] = proyecto;
+			return View();
+		}
+    }
+>>>>>>> f166d58... Update: Link paginas
 
     }
 }

@@ -15,9 +15,9 @@ namespace Proyecto_Web.Controllers
         // Configuracion de la conexion a la base de datos
         private IHostingEnvironment hostingEnv;
 
-        public HomeController(IHostingEnvironment env)
+        public HomeController()
         {
-            this.hostingEnv = env;
+            
         }
 
         public IActionResult Index()

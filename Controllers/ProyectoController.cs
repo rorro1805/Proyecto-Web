@@ -23,14 +23,12 @@ namespace Proyecto_Web.Controllers
 
         public IActionResult Proyectos()
         {
-            //int idProyecto = 3001;
             return View();
         }
 
         public IActionResult FileUpload(){
             System.Console.WriteLine("Entramos al fileUpload ");
 
-            ViewData["idProyect"] = 3001;
             return View();
         }
 

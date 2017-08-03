@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{9F086E15-1544-4FF3-ABEC-9C4FBEC1AAF5}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Estado de Projects">
     <Files>
+      <File FileName="Models/Logica/LogicaProyecto.cs" Line="19" Column="66" />
+      <File FileName="Models/Logica/Controllers/ControladorProyecto.cs" Line="1" Column="1" />
+      <File FileName="Controllers/MisProyectosController.cs" Line="1" Column="1" />
       <File FileName="Controllers/ProyectoController.cs" Line="1" Column="1" />
-      <File FileName="Views/Proyecto/FileUpload.cshtml" Line="1" Column="1" />
-      <File FileName="Views/MisProyectos/MisProyectos.cshtml" Line="1" Column="1" />
-      <File FileName=".gitignore" Line="3" Column="6" />
+      <File FileName="Models/Domain/Persona.cs" Line="24" Column="62" />
       <File FileName="Estado de Projects" />
     </Files>
   </MonoDevelop.Ide.Workbench>
