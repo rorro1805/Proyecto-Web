@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{9F086E15-1544-4FF3-ABEC-9C4FBEC1AAF5}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Estado de Projects">
+    <Files>
+      <File FileName="Controllers/ProyectoController.cs" Line="1" Column="1" />
+      <File FileName="Views/Proyecto/FileUpload.cshtml" Line="1" Column="1" />
+      <File FileName="Views/MisProyectos/MisProyectos.cshtml" Line="1" Column="1" />
+      <File FileName=".gitignore" Line="3" Column="6" />
+      <File FileName="Estado de Projects" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Proyecto_220Web PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
