@@ -71,8 +71,6 @@ namespace Proyecto_Web.Controllers
                 return RedirectToAction("ErrorLogin", "Home", new { mensaje = mensajeError });
             }
         }
-<<<<<<< HEAD
-=======
 
 		public IActionResult Proyectos(int id)
 		{
@@ -85,7 +83,6 @@ namespace Proyecto_Web.Controllers
 			return View();
 		}
     }
->>>>>>> f166d58... Update: Link paginas
 
-    }
 }
+
