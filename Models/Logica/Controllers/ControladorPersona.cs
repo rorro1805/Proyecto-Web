@@ -25,9 +25,18 @@ namespace Proyecto_Web.Models.Logica.Controllers
                     // se incluyen las ids de los proyectos en los que esta asociado
                     .Include(tr => tr.Trabajadores)
                     // se incluyen los proyectos en los que es director
-                    .Include(pr => pr.Proyecto)
+                    //.Include(pr => pr.Proyecto)
                     // obtiene a la persona si la encuentra
                     .FirstOrDefault();
+        }
+
+        // Almacena una persona en la BD
+        public void Save(Persona nuevoUser)
+        {
+            // insercion
+            this.context.Add(nuevoUser);
+            // se guardan los cambios en la BD
+            this.context.SaveChangesAsync();
         }
     }
 }
