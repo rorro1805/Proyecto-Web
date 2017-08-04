@@ -37,7 +37,7 @@ namespace Proyecto_Web.Controllers
                 {
                     // se envia a la persona encontrada
                     ViewData["PersonaEncontrada"] = personaEncontrada;
-                    string mensajeProyectos = "todo bien";
+                    /*string mensajeProyectos = "todo bien";
                     if (personaEncontrada.Proyecto.Count == 0)
                     {
                         mensajeProyectos = "no hay proyectos";
@@ -46,7 +46,7 @@ namespace Proyecto_Web.Controllers
                     else
                     {
                         ViewData["msj"] = mensajeProyectos;
-                    }
+                    }*/
                     return View();
                 }
                 else

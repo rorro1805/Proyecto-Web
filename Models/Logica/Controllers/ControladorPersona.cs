@@ -13,22 +13,21 @@ namespace Proyecto_Web.Models.Logica.Controllers
         // Constructor
         public ControladorPersona()
         {
-            
+            this.context = new ucn_disc_twa_proyecto_webContext();
         }
 
         // GET: Persona
         public Persona Find(string rut)
         {
-            this.context = new ucn_disc_twa_proyecto_webContext();
-
-            this.context.Database.OpenConnection();
-
             // consulta a la BD
-            Persona persona = this.context.Persona.Where(p => p.Rut == rut).Include(pr => pr.Proyecto).ToList().FirstOrDefault();            
-
-            this.context.Dispose();
-            return persona;
-                    
+            return context.Persona.
+                    Where(p => p.Rut == rut)
+                    // se incluyen las ids de los proyectos en los que esta asociado
+                    .Include(tr => tr.Trabajadores)
+                    // se incluyen los proyectos en los que es director
+                    .Include(pr => pr.Proyecto)
+                    // obtiene a la persona si la encuentra
+                    .FirstOrDefault();
         }
     }
 }
