@@ -22,5 +22,17 @@ namespace Proyecto_Web.Models.Domain
 
         public virtual ICollection<Proyecto> Proyecto { get; set; }
         public virtual ICollection<Trabajadores> Trabajadores { get; set; }
+
+        public Persona(string Rut, string Nombre, string Paterno, string Materno, string Email,
+                        string FechaNacimiento, string Password, bool Admin)
+        {
+            this.Rut = Rut;
+            this.Nombre = Nombre;
+            this.Paterno = Paterno;
+            this.Materno = Materno;
+            this.Email = Email;
+            this.FechaNacimiento = FechaNacimiento;
+            this.Admin = Admin;
+        }
     }
 }

@@ -24,7 +24,11 @@ namespace Proyecto_Web.Models.Logica.Controllers
 			this.context.Database.OpenConnection();
 
 			// consulta a la BD
-			Proyecto proyecto = this.context.Proyecto.Where(p => p.Id == id).Include(ar => ar.Archivo).ToList().FirstOrDefault();
+			Proyecto proyecto = this.context.Proyecto
+			.Where(p => p.Id == id)
+			.Include(ar => ar.Archivo)
+			.ToList()
+			.FirstOrDefault();
 			this.context.Dispose();
 
 			return proyecto;

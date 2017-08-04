@@ -18,9 +18,7 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a href="#">Acción #1</a></li>
-                    <li><a href="#">Acción #2</a></li>
-                    <li><a href="#">Acción #3</a></li>
+                    <li><a href="#">Agregar Proyecto</a></li>
                     <li class="divider"></li>
                     <li><a asp-action="Index" asp-controller="Home">Cerrar Sesión</a></li>
                 </ul>
@@ -31,10 +29,30 @@
 
 <div style="padding-top: 100px; width: 300px">
     <div class="list-group">
+        <li class="list-group-item list-group-item-success"><strong>Colaborando</strong></li>
         <!-- por cada proyecto donde participa la persona -->
         @foreach (Proyecto proyecto in persona.Proyecto)
         {
-            <a asp-controller="MisProyectos" asp-action="Proyectos" asp-route-id="@proyecto.Id" class="list-group-item">@proyecto.Nombre</a>         
+            <!-- si la persona no es director del proyecto -->
+            if(proyecto.RutDirector != persona.Rut)
+            {
+                <a asp-controller="MisProyectos" asp-action="Proyectos" asp-route-id="@proyecto.Id" 
+                    class="list-group-item">@proyecto.Nombre</a>       
+            }
+        }
+
+    </div>
+    <div class="list-group" style="padding-top: 20px">
+        <li class="list-group-item list-group-item-warning"><strong>Director</strong></li>
+        <!-- por cada proyecto donde participa la persona -->
+        @foreach (Proyecto proyecto in persona.Proyecto)
+        {
+            <!-- si la persona es director del proyecto -->
+            if(proyecto.RutDirector == persona.Rut)
+            {
+                <a asp-controller="MisProyectos" asp-action="Proyectos" asp-route-id="@proyecto.Id" 
+                class="list-group-item">@proyecto.Nombre</a>         
+            }
         }
 
     </div>

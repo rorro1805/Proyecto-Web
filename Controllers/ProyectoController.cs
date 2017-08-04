@@ -2,6 +2,8 @@ using System.IO;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto_Web.Models.Domain;
+using Proyecto_Web.Models.Logica.Controllers;
 
 namespace Proyecto_Web.Controllers
 {
@@ -26,9 +28,11 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
-        public IActionResult FileUpload(){
+        public IActionResult FileUpload(Proyecto proyecto){
+
             System.Console.WriteLine("Entramos al fileUpload ");
 
+            ViewData["proyecto"] = proyecto;
             return View();
         }
 
@@ -39,19 +43,23 @@ namespace Proyecto_Web.Controllers
             long size = 0;
 
             var files = Request.Form.Files;
-            string idProyect = Request.Form["idProyect"];
+            string idProyectoString = Request.Form["idProyecto"];
+            int idProyecto = int.Parse(idProyectoString);
+
             foreach (var file in files)
             {
                 //Creamos un nombre para el archivo
-                string result = Path.GetRandomFileName();
+                string result = Path.GetRandomFileName() + Path.GetRandomFileName();
+                 
+                /* 
                 var filename = ContentDispositionHeaderValue
                             .Parse(file.ContentDisposition)
                             .FileName
                             .Trim('"');
+                */
                 
-                var extension = filename.Substring((filename.Length - 5),5);
-                
-                filename = result + "." + extension;
+                var extension = Path.GetExtension(file.FileName);
+                var filename = result;
 
                 filename = hostingEnv.WebRootPath + $@"/Uploads/{filename}";
                 size += file.Length;
@@ -61,6 +69,19 @@ namespace Proyecto_Web.Controllers
                     file.CopyTo(fs);
                     fs.Flush();
                 }
+
+                //enviamos los datos a la base de datos
+                ControladorArchivo cArchivo = new ControladorArchivo();
+                Archivo archivo = new Archivo();
+                archivo.IdEstado = 1001;
+                archivo.Nombre = file.FileName;
+                archivo.Ruta = filename;
+                archivo.Tipo = extension;
+                archivo.IdProyecto = idProyecto;
+
+                cArchivo.Add(archivo);
+
+
             }
             string message = $"{files.Count} archivo(s) / {size} bytes cargados exitosamente!";
             return Json(message);

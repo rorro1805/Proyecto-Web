@@ -35,18 +35,18 @@ namespace Proyecto_Web.Controllers
                 // si el password ingresado coincide con el de la BD
                 if (personaEncontrada.Password.Equals(passwordIngresado))
                 {
+                    // controlador de la clase Proyecto
+                    var controladorProyecto = new ControladorProyecto();
+                    // por cada trabajo de la persona
+                    foreach(Trabajadores trabajo in personaEncontrada.Trabajadores)
+                    {
+                        // busco un proyecto segun su id en el trabajo
+                        Proyecto proyEncontrado = controladorProyecto.Find(trabajo.IdProyecto);
+                        // se agrega el proyecto a la lista de proyectos de la persona
+                        personaEncontrada.Proyecto.Add(proyEncontrado);
+                    }
                     // se envia a la persona encontrada
                     ViewData["PersonaEncontrada"] = personaEncontrada;
-                    string mensajeProyectos = "todo bien";
-                    if (personaEncontrada.Proyecto.Count == 0)
-                    {
-                        mensajeProyectos = "no hay proyectos";
-                        ViewData["msj"] = mensajeProyectos;
-                    }
-                    else
-                    {
-                        ViewData["msj"] = mensajeProyectos;
-                    }
                     return View();
                 }
                 else
